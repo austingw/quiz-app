@@ -17,11 +17,13 @@ function App() {
       return {
         answer: answer,
         isTrue: false,
+        isSelected: false,
       };
     });
     answerKey.push({
       answer: data.correct_answer,
       isTrue: true,
+      isSelected: false,
     });
     //shuffledAnswers randomizes the array order of each question's answers
     //so that there isn't a set pattern/order of correct answers for the quiz
