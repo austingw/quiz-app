@@ -6,7 +6,7 @@ export default {
       type: "multiple",
       difficulty: "hard",
       question:
-        "In the film &quot;Interstellar&quot;, how long did they spend on Miller&#039;s planet?",
+        "In the film 'Interstellar' how long did they spend on Miller's planet?",
       correct_answer: "23 years, 4 months, and 8 days",
       incorrect_answers: [
         "15 years, 2 months, and 15 days",

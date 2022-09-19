@@ -6,6 +6,8 @@ import Answer from "./components/Answer";
 
 function App() {
   const [questions, setQuestions] = useState(getQuiz(testQuestions.results));
+  const [results, setResults] = useState(false);
+  const [correct, setCorrect] = useState(0);
 
   function getQuiz(quizQuestions) {
     const newQuiz = [];
@@ -64,6 +66,16 @@ function App() {
     );
   }
 
+  function submitAnswers() {
+    console.log("submit event");
+  }
+
+  function newGame() {
+    setResults(false);
+    setQuestions(getQuiz(testQuestions.results));
+    setCorrect(0);
+  }
+
   useEffect(() => {
     /*console.log(
       `https://opentdb.com/api.php?amount=5&category=11&type=multiple`
@@ -99,7 +111,16 @@ function App() {
     </div>
   ));
 
-  return <div className="App">{questionElements}</div>;
+  return (
+    <div className="App">
+      {questionElements}
+      {!results ? (
+        <button onClick={submitAnswers}>Submit Answers</button>
+      ) : (
+        <button onClick={newGame}>New Game</button>
+      )}
+    </div>
+  );
 }
 
 export default App;
