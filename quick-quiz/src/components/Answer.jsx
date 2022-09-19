@@ -1,10 +1,6 @@
 export default function Answer(props) {
   const styles = {
-    bakgroundColor: props.isSelected
-      ? backgroundColor
-      : props.isHeld
-      ? "#59E391"
-      : "white",
+    backgroundColor: props.isSelected ? "#59E391" : "black",
   };
   //
 

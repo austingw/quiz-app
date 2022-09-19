@@ -33,14 +33,35 @@ function App() {
       .sort((a, b) => a.sort - b.sort)
       .map((a) => a.value);
 
-    return {
-      question: data.question,
-      answers: shuffledAnswers,
-    };
+    return [
+      data.question,
+      shuffledAnswers[0],
+      shuffledAnswers[1],
+      shuffledAnswers[2],
+      shuffledAnswers[3],
+    ];
   }
 
-  function selectAnswer(choice) {
+  function selectAnswer(set, question, choice) {
     console.log(choice);
+
+    setQuestions((oldQuestions) =>
+      oldQuestions.map((pair) => {
+        if (pair === set) {
+          return pair.map((item) => {
+            if (item === question) {
+              return item;
+            } else if (item.answer === choice) {
+              return { ...item, isSelected: !item.isSelected };
+            } else {
+              return { ...item, isSelected: false };
+            }
+          });
+        } else {
+          return pair;
+        }
+      })
+    );
   }
 
   useEffect(() => {
@@ -51,28 +72,28 @@ function App() {
   }, [questions]);
 
   const questionElements = questions.map((pair) => (
-    <div key={pair.question} className="question">
-      <Question question={pair.question} />
+    <div key={pair[0]} className="question">
+      <Question question={pair[0]} />
       <div className="answers">
         <Answer
-          answer={pair.answers[0].answer}
-          isSelected={pair.answers[0].isSelected}
-          selectAnswer={() => selectAnswer(pair.answers[0])}
+          answer={pair[1].answer}
+          isSelected={pair[1].isSelected}
+          selectAnswer={() => selectAnswer(pair, pair[0], pair[1].answer)}
         />
         <Answer
-          answer={pair.answers[1].answer}
-          isSelected={pair.answers[1].isSelected}
-          selectAnswer={() => selectAnswer(pair.answers[1])}
+          answer={pair[2].answer}
+          isSelected={pair[2].isSelected}
+          selectAnswer={() => selectAnswer(pair, pair[0], pair[2].answer)}
         />
         <Answer
-          answer={pair.answers[2].answer}
-          isSelected={pair.answers[2].isSelected}
-          selectAnswer={() => selectAnswer(pair.answers[2])}
+          answer={pair[3].answer}
+          isSelected={pair[3].isSelected}
+          selectAnswer={() => selectAnswer(pair, pair[0], pair[3].answer)}
         />
         <Answer
-          answer={pair.answers[3].answer}
-          isSelected={pair.answers[3].isSelected}
-          selectAnswer={() => selectAnswer(pair.answers[3])}
+          answer={pair[4].answer}
+          isSelected={pair[4].isSelected}
+          selectAnswer={() => selectAnswer(pair, pair[0], pair[4].answer)}
         />
       </div>
     </div>
