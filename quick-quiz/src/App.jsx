@@ -2,6 +2,7 @@ import { useState, useEffect } from "react";
 import Question from "./components/Question";
 import Start from "./components/Start";
 import testQuestions from "./testQuestions";
+import Answer from "./components/Answer";
 
 function App() {
   const [questions, setQuestions] = useState(getQuiz(testQuestions.results));
@@ -38,38 +39,46 @@ function App() {
     };
   }
 
+  function selectAnswer(choice) {
+    console.log(choice);
+  }
+
   useEffect(() => {
     /*console.log(
       `https://opentdb.com/api.php?amount=5&category=11&type=multiple`
     );*/
     console.log(questions);
-  }, []);
+  }, [questions]);
 
-  const questionElements = questions.map((question) => (
-    <Question
-      key={question.question}
-      question={question.question}
-      answer1={question.answers[0]}
-      answer2={question.answers[1]}
-      answer3={question.answers[2]}
-      answer4={question.answers[3]}
-    />
+  const questionElements = questions.map((pair) => (
+    <div key={pair.question} className="question">
+      <Question question={pair.question} />
+      <div className="answers">
+        <Answer
+          answer={pair.answers[0].answer}
+          isSelected={pair.answers[0].isSelected}
+          selectAnswer={() => selectAnswer(pair.answers[0])}
+        />
+        <Answer
+          answer={pair.answers[1].answer}
+          isSelected={pair.answers[1].isSelected}
+          selectAnswer={() => selectAnswer(pair.answers[1])}
+        />
+        <Answer
+          answer={pair.answers[2].answer}
+          isSelected={pair.answers[2].isSelected}
+          selectAnswer={() => selectAnswer(pair.answers[2])}
+        />
+        <Answer
+          answer={pair.answers[3].answer}
+          isSelected={pair.answers[3].isSelected}
+          selectAnswer={() => selectAnswer(pair.answers[3])}
+        />
+      </div>
+    </div>
   ));
 
-  return (
-    <div className="App">
-      {questionElements}
-
-      {/*<Question
-        key={questions[0].question}
-        question={questions[0].question}
-        answer1={answers[0]}
-        answer2={answers[1]}
-        answer3={answers[2]}
-        answer4={answers[3]}
-  />*/}
-    </div>
-  );
+  return <div className="App">{questionElements}</div>;
 }
 
 export default App;
