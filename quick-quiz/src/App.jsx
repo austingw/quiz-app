@@ -80,7 +80,22 @@ function App() {
     /*console.log(
       `https://opentdb.com/api.php?amount=5&category=11&type=multiple`
     );*/
-    console.log(questions);
+
+    const trueChoices = [];
+
+    questions.forEach((pair) =>
+      trueChoices.push(
+        pair.filter((item) => {
+          return item.isTrue && item.isSelected ? true : null;
+        })
+      )
+    );
+    const scoreTally = trueChoices.filter((item) => {
+      return item != null && item != "";
+    });
+
+    setCorrect(scoreTally);
+    console.log(correct);
   }, [questions]);
 
   const questionElements = questions.map((pair) => (
@@ -113,6 +128,7 @@ function App() {
 
   return (
     <div className="App">
+      {results && <div className="score">{correct.length} / 5</div>}
       {questionElements}
       {!results ? (
         <button onClick={submitAnswers}>Submit Answers</button>
