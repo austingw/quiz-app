@@ -95,7 +95,6 @@ function App() {
     });
 
     setCorrect(scoreTally);
-    console.log(correct);
   }, [questions]);
 
   const questionElements = questions.map((pair) => (
@@ -105,21 +104,29 @@ function App() {
         <Answer
           answer={pair[1].answer}
           isSelected={pair[1].isSelected}
+          isTrue={pair[1].isTrue}
+          results={results}
           selectAnswer={() => selectAnswer(pair, pair[0], pair[1].answer)}
         />
         <Answer
           answer={pair[2].answer}
           isSelected={pair[2].isSelected}
+          isTrue={pair[2].isTrue}
+          results={results}
           selectAnswer={() => selectAnswer(pair, pair[0], pair[2].answer)}
         />
         <Answer
           answer={pair[3].answer}
           isSelected={pair[3].isSelected}
+          isTrue={pair[3].isTrue}
+          results={results}
           selectAnswer={() => selectAnswer(pair, pair[0], pair[3].answer)}
         />
         <Answer
           answer={pair[4].answer}
           isSelected={pair[4].isSelected}
+          isTrue={pair[4].isTrue}
+          results={results}
           selectAnswer={() => selectAnswer(pair, pair[0], pair[4].answer)}
         />
       </div>
