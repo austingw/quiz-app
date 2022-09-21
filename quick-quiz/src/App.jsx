@@ -8,6 +8,7 @@ function App() {
   const [questions, setQuestions] = useState(getQuiz(testQuestions.results));
   const [results, setResults] = useState(false);
   const [correct, setCorrect] = useState(0);
+  const [restart, setRestart] = useState(false);
 
   function getQuiz(quizQuestions) {
     const newQuiz = [];
@@ -74,13 +75,21 @@ function App() {
     setResults(false);
     setQuestions(getQuiz(testQuestions.results));
     setCorrect(0);
+    setRestart(true);
   }
 
-  useEffect(() => {
-    /*console.log(
-      `https://opentdb.com/api.php?amount=5&category=11&type=multiple`
-    );*/
+  useEffect(
+    function fetchQuiz() {
+      //console.log("Effect ran");
+      setRestart(false);
+      fetch(`https://opentdb.com/api.php?amount=5&category=11&type=multiple`)
+        .then((res) => res.json())
+        .then((obj) => setQuestions(getQuiz(obj.results)));
+    },
+    [restart]
+  );
 
+  useEffect(() => {
     const trueChoices = [];
 
     questions.forEach((pair) =>
