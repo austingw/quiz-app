@@ -158,11 +158,11 @@ function App() {
       {questionElements}
       {!results ? (
         <button className="game-btn" onClick={submitAnswers}>
-          Submit Answers
+          Check Answers
         </button>
       ) : (
         <button className="game-btn" onClick={newGame}>
-          New Game
+          Play Again
         </button>
       )}
     </div>
