@@ -135,12 +135,18 @@ function App() {
 
   return (
     <div className="App">
-      {results && <div className="score">{correct.length} / 5</div>}
+      {results && (
+        <h2 className="score">You got {correct.length} / 5 correct! </h2>
+      )}
       {questionElements}
       {!results ? (
-        <button onClick={submitAnswers}>Submit Answers</button>
+        <button className="game-btn" onClick={submitAnswers}>
+          Submit Answers
+        </button>
       ) : (
-        <button onClick={newGame}>New Game</button>
+        <button className="game-btn" onClick={newGame}>
+          New Game
+        </button>
       )}
     </div>
   );
