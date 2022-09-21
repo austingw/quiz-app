@@ -16,16 +16,25 @@ function App() {
     return newQuiz;
   }
 
+  function fixPuncuation(str) {
+    return str
+      .replace(/&amp;/g, "&")
+      .replace(/&lt;/g, "<")
+      .replace(/&gt;/g, ">")
+      .replace(/&quot;/g, '"')
+      .replace(/&#039;/g, "'");
+  }
+
   function generateAnswers(data) {
     const answerKey = data.incorrect_answers.map((answer) => {
       return {
-        answer: answer,
+        answer: fixPuncuation(answer),
         isTrue: false,
         isSelected: false,
       };
     });
     answerKey.push({
-      answer: data.correct_answer,
+      answer: fixPuncuation(data.correct_answer),
       isTrue: true,
       isSelected: false,
     });
@@ -37,7 +46,7 @@ function App() {
       .map((a) => a.value);
 
     return [
-      data.question,
+      fixPuncuation(data.question),
       shuffledAnswers[0],
       shuffledAnswers[1],
       shuffledAnswers[2],
@@ -80,9 +89,8 @@ function App() {
 
   useEffect(
     function fetchQuiz() {
-      //console.log("Effect ran");
       setRestart(false);
-      fetch(`https://opentdb.com/api.php?amount=5&category=11&type=multiple`)
+      fetch(`https://opentdb.com/api.php?amount=5&type=multiple`)
         .then((res) => res.json())
         .then((obj) => setQuestions(getQuiz(obj.results)));
     },
