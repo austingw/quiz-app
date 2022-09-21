@@ -67,7 +67,7 @@ function App() {
   }
 
   function submitAnswers() {
-    console.log("submit event");
+    setResults(true);
   }
 
   function newGame() {
