@@ -54,14 +54,15 @@ body {
 }
 
 .answer-btn {
-  width: 120px;
-  height: 60px;
+  width: 140px;
+  height: 70px;
   font-family: Inter, Avenir, Helvetica, Arial, sans-serif;
-  font-size: 14px;
-  line-height: 24px;
-  font-weight: 400;
+  font-size: 15px;
+  line-height: 18px;
+  font-weight: 600;
+  overflow: hidden;
+  text-overflow: ellipsis;
   color: aliceblue;
-  background-color: lightcoral;
   border: none;
   border-radius: 12px;
   padding: 6px;
