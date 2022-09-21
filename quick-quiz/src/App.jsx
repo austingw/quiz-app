@@ -3,6 +3,8 @@ import Question from "./components/Question";
 import Start from "./components/Start";
 import testQuestions from "./testQuestions";
 import Answer from "./components/Answer";
+import blobs from "./assets/blobs.svg";
+import blobs2 from "./assets/blobs-2.svg";
 
 function App() {
   const [questions, setQuestions] = useState(getQuiz(testQuestions.results));
@@ -117,6 +119,7 @@ function App() {
   const questionElements = questions.map((pair) => (
     <div key={pair[0]} className="question">
       <Question question={pair[0]} />
+
       <div className="answers">
         <Answer
           answer={pair[1].answer}
@@ -152,8 +155,9 @@ function App() {
 
   return (
     <div className="App">
+      <img src={blobs} className="blob" />
       {results && (
-        <h2 className="score">You got {correct.length} / 5 correct! </h2>
+        <div className="score">You got {correct.length} / 5 correct! </div>
       )}
       {questionElements}
       {!results ? (
@@ -165,6 +169,7 @@ function App() {
           Play Again
         </button>
       )}
+      <img src={blobs2} className="blob-2" />
     </div>
   );
 }

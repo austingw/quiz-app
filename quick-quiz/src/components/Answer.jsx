@@ -1,15 +1,9 @@
 export default function Answer(props) {
   const styles = {
-    backgroundColor: props.isSelected ? "navy" : "grey",
-
-    color: props.results
-      ? props.isSelected && props.isTrue
-        ? "lightgreen"
-        : "pink"
-      : "white",
+    backgroundColor: props.isSelected ? "#D6DBF5" : "#f5f7fb",
 
     textDecoration: props.results
-      ? props.isSelected && props.isTrue
+      ? props.isTrue
         ? "underline"
         : "line-through"
       : "none",

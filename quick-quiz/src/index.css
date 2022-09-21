@@ -1,12 +1,11 @@
 :root {
   font-family: Inter, Avenir, Helvetica, Arial, sans-serif;
   font-size: 16px;
-  line-height: 24px;
+  line-height: 12px;
   font-weight: 400;
 
-  color-scheme: light dark;
-  color: rgba(255, 255, 255, 0.87);
-  background-color: #242424;
+  color: #293264;
+  background-color: #f5f7fb;
 
   font-synthesis: none;
   text-rendering: optimizeLegibility;
@@ -24,9 +23,11 @@ body {
   align-items: center;
   min-width: 320px;
   min-height: 100vh;
+  max-height: fit-content;
 }
 
 .App {
+  display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
@@ -37,12 +38,14 @@ body {
   flex-direction: column;
   max-width: 600px;
   max-height: 240px;
-  align-items: center;
-  justify-content: center;
+  align-items: left;
+  justify-content: left;
 }
 
 .question-title {
-  color: aliceblue;
+  font-size: 24px;
+  filter: drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.25));
+  line-height: 30px;
 }
 
 .answers {
@@ -50,30 +53,77 @@ body {
   flex-direction: row;
   align-items: center;
   justify-content: space-between;
-  gap: 40px;
+  gap: 20px;
 }
 
 .answer-btn {
-  width: 140px;
-  height: 70px;
+  width: 150px;
+  height: 50px;
   font-family: Inter, Avenir, Helvetica, Arial, sans-serif;
-  font-size: 15px;
-  line-height: 18px;
-  font-weight: 600;
+  font-size: 16px;
+  line-height: 16px;
   overflow: hidden;
   text-overflow: ellipsis;
-  color: aliceblue;
-  border: none;
+  color: #293264;
+  border: #293264 2px solid;
+  background: none;
   border-radius: 12px;
-  padding: 6px;
+  padding: 5px;
   cursor: pointer;
 }
 
 .answer-btn:hover {
-  background-color: #0b243465;
-  text-decoration: line-through;
+  color: #29326485;
+  border: #29326485 2px solid;
 }
 
 .answer-btn:active {
   box-shadow: inset 5px 5px 10px -3px rgba(0, 0, 0, 0.7);
+}
+
+.game-btn {
+  margin-top: 15px;
+  font-family: Inter, Avenir, Helvetica, Arial, sans-serif;
+  font-size: 18px;
+  line-height: 20px;
+  color: #f5f7fb;
+  background-color: #4d5b9e;
+  width: 160px;
+  height: 60px;
+  border-radius: 8px;
+  border: none;
+  cursor: pointer;
+}
+
+.game-btn:hover {
+  background-color: #293264;
+  border: #4d5b9e 2px solid;
+}
+
+.game-btn:active {
+  box-shadow: inset 5px 5px 10px -3px rgba(0, 0, 0, 0.7);
+}
+
+.score {
+  margin-top: 20px;
+  font-size: 28px;
+  font-weight: 800;
+  text-decoration: underline;
+  filter: drop-shadow(0px 8px 8px rgba(0, 0, 0, 0.25));
+}
+
+.blob {
+  position: absolute;
+  width: 20%;
+  height: 40%;
+  right: 0px;
+  top: 0px;
+}
+
+.blob-2 {
+  position: absolute;
+  width: 15%;
+  height: 15%;
+  left: 0px;
+  bottom: 0px;
 }
