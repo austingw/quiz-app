@@ -26,6 +26,11 @@ function App() {
       .replace(/&gt;/g, ">")
       .replace(/&quot;/g, '"')
       .replace(/&#039;/g, "'")
+      .replace(/&#176;/g, "°")
+      .replace(/&ldquo;/g, "“")
+      .replace(/&rdquo;/g, "”")
+      .replace(/&ntilde;/g, "ñ")
+      .replace(/&aacute;/g, "á")
       .replace(/&eacute;/g, "é");
   }
 
