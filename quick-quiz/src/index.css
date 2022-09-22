@@ -26,6 +26,22 @@ body {
   max-height: fit-content;
 }
 
+h1 {
+  line-height: 6px;
+}
+
+.start-screen {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  max-width: 600px;
+  font-size: 24px;
+  filter: drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.25));
+  line-height: 30px;
+  text-align: center;
+}
+
 .App {
   display: flex;
   flex-direction: column;
@@ -74,7 +90,7 @@ body {
 
 .answer-btn:hover {
   color: #29326485;
-  border: #29326485 2px solid;
+  border: #293264c5 2px solid;
 }
 
 .answer-btn:active {
@@ -86,7 +102,6 @@ body {
   font-family: Inter, Avenir, Helvetica, Arial, sans-serif;
   font-size: 22px;
 
-  text-transform: uppercase;
   line-height: 20px;
   color: #f5f7fb;
   background-color: #4d5b9e;
@@ -112,6 +127,7 @@ body {
   font-weight: 800;
   text-decoration: underline;
   filter: drop-shadow(0px 8px 8px rgba(0, 0, 0, 0.25));
+  margin-bottom: 15px;
 }
 
 .blob {

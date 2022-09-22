@@ -10,6 +10,7 @@ function App() {
   const [questions, setQuestions] = useState(getQuiz(testQuestions.results));
   const [results, setResults] = useState(false);
   const [correct, setCorrect] = useState(0);
+  const [startGame, setStartGame] = useState(false);
   const [restart, setRestart] = useState(false);
 
   function getQuiz(quizQuestions) {
@@ -24,7 +25,8 @@ function App() {
       .replace(/&lt;/g, "<")
       .replace(/&gt;/g, ">")
       .replace(/&quot;/g, '"')
-      .replace(/&#039;/g, "'");
+      .replace(/&#039;/g, "'")
+      .replace(/&eacute;/g, "é");
   }
 
   function generateAnswers(data) {
@@ -80,6 +82,10 @@ function App() {
 
   function submitAnswers() {
     setResults(true);
+  }
+
+  function startBtn() {
+    setStartGame(true);
   }
 
   function newGame() {
@@ -153,22 +159,37 @@ function App() {
     </div>
   ));
 
+  const gameBtns = `{!results ? (
+    <button className="game-btn" onClick={submitAnswers}>
+      Check Answers
+    </button>
+  ) : (
+    <button className="game-btn" onClick={newGame}>
+      Play Again
+    </button>
+  )}`;
+
   return (
     <div className="App">
       <img src={blobs} className="blob" />
+
+      {!startGame && <Start handleClick={startBtn} />}
+      {startGame && questionElements}
       {results && (
         <div className="score">You got {correct.length} / 5 correct! </div>
       )}
-      {questionElements}
-      {!results ? (
+      {!results && startGame && (
         <button className="game-btn" onClick={submitAnswers}>
           Check Answers
         </button>
-      ) : (
+      )}
+
+      {results && startGame && (
         <button className="game-btn" onClick={newGame}>
           Play Again
         </button>
       )}
+
       <img src={blobs2} className="blob-2" />
     </div>
   );
