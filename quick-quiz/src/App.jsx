@@ -6,7 +6,7 @@ import Answer from "./components/Answer";
 import blobs from "./assets/blobs.svg";
 import blobs2 from "./assets/blobs-2.svg";
 
-function App() {
+export default function App() {
   const [questions, setQuestions] = useState(getQuiz(testQuestions.results));
   const [results, setResults] = useState(false);
   const [correct, setCorrect] = useState(0);
@@ -27,6 +27,7 @@ function App() {
       .replace(/&quot;/g, '"')
       .replace(/&#039;/g, "'")
       .replace(/&#176;/g, "°")
+      .replace(/&deg;/g, "°")
       .replace(/&ldquo;/g, "“")
       .replace(/&rdquo;/g, "”")
       .replace(/&ntilde;/g, "ñ")
@@ -199,5 +200,3 @@ function App() {
     </div>
   );
 }
-
-export default App;
