@@ -10,7 +10,7 @@ Play <a href="austingw.github.io/quiz-app">here</a>
 
 # About # 
 
-This React app was made completely from scratch based upon the lessons I learned from the Scrimba React course. The only assistance given was overall visual design examples, but the structure, game logic, etc. were all up to me. I would say the most difficult aspects of this project were figuring out the best way to handle the data received from the OpenTDB API, rendering the question and answer options as components, and maintaining player choice so that the game logic functioned correctly. Overall, working on this project for a week or so in my free time helped me not only understand React better, but also solidified my understanding of array methods. 
+This React app was made completely from scratch based upon the lessons I learned from the Scrimba React course. The only assistance given was overall visual design examples, but the structure, game logic, etc. were all up to me. I would say the most difficult aspects of this project were figuring out the best way to handle the data received from the OpenTDB API, rendering the question and answer options as components, and maintaining player choice so that the game logic functioned correctly. Overall, working on this project for a week or so in my free time helped me not only understand React better, but also solidified my understanding of array methods as a whole. 
 
 # Features #
 
