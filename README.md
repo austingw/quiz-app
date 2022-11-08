@@ -1,5 +1,5 @@
 <p align="center">
-<img src="https://raw.githubusercontent.com/austingw/austingw.github.io/main/src/assets/quiz-app.gif" alt="Quiz GIF" />
+<img src="https://raw.githubusercontent.com/austingw/portfolio-site/main/src/assets/quiz-app.gif" alt="Quiz GIF" />
 </p>
 
 # Kitchen Sink Quiz #
